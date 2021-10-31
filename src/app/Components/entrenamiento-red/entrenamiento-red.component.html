@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-3">
+        <h3>Parametros de Entrada</h3>
+        <h4 class="card-title">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
+        <input type="file" (change)="onChange($event.target.files)">
+        <input type="button" class="btn btn-secondary" value="Reiniciar Red" onclick="location.reload()" />
+    </div>
+    <div class="col-6">
+        <h3>Configuracion de la Red</h3>
+        <form (submit)="ACred()" [formGroup]="ConfigRedForm">
+
+            <div class="form-group">
+
+                <input type="button" class="btn btn-secondary" value="Insertar Capa Oculta" (click)="agregarCapaO()" />
+            </div>
+
+            <div formArrayName="capasO" *ngFor="let capaO of capasO.controls; let i = index">
+                <div [formGroupName]="i">
+                    <div class="form-group row">
+
+                        <div class="col-md-3">
+                            <label>N° Neuronas</label>
+                            <input type="number" class="form-control" formControlName="nneuronas">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label>Funcion Activacion</label>
+                            <select class="form-control" formControlName="factivacion">
+                                <option >SIGMOIDE</option>
+                                <option >GAUSIANA</option>
+                                <option >TANGENTE HIPERBOLICA</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-2">
+                            <button class="btn btn-secondary" (click)="removerCapa(i)">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Funcion Activacion de la Salida</h4>
+            <select id="selectfas" class="form-control" formControlName="factivacion">
+                    <option >SIGMOIDE</option>
+                    <option >GAUSIANA</option>
+                    <option >TANGENTE HIPERBOLICA</option>
+                    <option >LINEAL</option>
+                </select>
+
+            <button type="submit" [disabled]="ConfigRedForm.invalid" class="btn btn-danger">Agregar Capas a la Red</button>
+        </form>
+    </div>
+</div>

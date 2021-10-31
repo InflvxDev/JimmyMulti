@@ -1,0 +1,42 @@
+.navbar {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#titulo {
+    color: gray;
+    font-family: 'Balsamiq Sans', cursive;
+    padding-left: 10px;
+    padding-right: 700px;
+    font-size: xx-large;
+}
+
+small {
+    color: gray;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: small;
+}
+
+#opciones {
+    font-family: 'Balsamiq Sans', cursive;
+    color: #F50057;
+}
+
+#opciones:hover {
+    background-color: #ebccd6;
+}
+
+button {
+    color: #F50057;
+    font-family: cursive;
+}
+
+#boton {
+    background-color: #F50057;
+    color: white;
+}
+
+#drop {
+    background-color: white;
+}
