@@ -1,97 +1,109 @@
-<!-- <div class="row">
-    <div class="col-3">
-        <h3>Parametros de Entrada</h3>
-        <h4 class="card-title">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
-        
-        <input type="button" class="btn btn-secondary" value="Reiniciar Red" onclick="location.reload()" />
+<div class="contenedor">
+
+
+    <div class="Params_entrada">
+        <label>Parametros de entrada</label>
+        <h4 class="ESP">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
+        <input class="input_file" type="file" (change)="onChange($event.target.files)">
+        <button type="button" class="btn btn-success" onclick="location.reload()">
+            Reiniciar red <i class="bi bi-arrow-clockwise"></i> 
+          </button>
     </div>
-    <div class="col-6">
-        <h3>Configuracion de la Red</h3>
+
+
+    <div class="config_red">
+        <label>Configuracion de la red </label>
         <form (submit)="ACred()" [formGroup]="ConfigRedForm">
 
-            <div class="form-group">
+            <h4>N° Neuronas
+            </h4>
+            <input type="number" class="form-control" formControlName="nodes_per_layer">
 
-                <input type="button" class="btn btn-secondary" value="Insertar Capa Oculta" (click)="agregarCapaO()" />
-            </div>
+            <h4>Funcion Activacion
+            </h4>
+            <select class="form-control" formControlName="activation_functions_names">
+                <option >sigmoid</option>
+                <option >tanh</option>
+            </select>
 
-            <div formArrayName="capasO" *ngFor="let capaO of capasO.controls; let i = index">
-                <div [formGroupName]="i">
-                    <div class="form-group row">
+            <h4>N° de Capas ocultas: {{Ncapasocultas}}
+            </h4>
 
-                        <div class="col-md-3">
-                            <label>N° Neuronas</label>
-                            <input type="number" class="form-control" formControlName="nneuronas">
-                        </div>
+            <button type="button" class="btn btn-secondary" (click)="agregarCapaO()">
+                Agregar Capa <i class="bi bi-plus-circle"></i> 
+              </button>
 
-                        <div class="col-md-5">
-                            <label>Funcion Activacion</label>
-                            <select class="form-control" formControlName="factivacion">
-                                <option >SIGMOIDE</option>
-                                <option >GAUSIANA</option>
-                                <option >TANGENTE HIPERBOLICA</option>
-                            </select>
 
-                        </div>
-
-                        <div class="col-md-2">
-                            <button class="btn btn-secondary" (click)="removerCapa(i)">Remover</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <h4>Funcion Activacion de la Salida</h4>
             <select id="selectfas" class="form-control" formControlName="factivacion">
-                    <option >SIGMOIDE</option>
-                    <option >GAUSIANA</option>
-                    <option >TANGENTE HIPERBOLICA</option>
-                    <option >LINEAL</option>
-                </select>
+                <option >sigmoid</option>
+                <option >tanh</option>
+                <option >linear</option>
+            </select>
 
-            <button type="submit" [disabled]="ConfigRedForm.invalid" class="btn btn-danger">Inicializar Pesos y Umbrales</button>
+            <button type="submit" [disabled]="ConfigRedForm.invalid" class="btn btn-success">Inicializar Red</button>
         </form>
     </div>
 
 
-    <form [formGroup]="ConfigRed2Form">
+    <div class="Params_Entrenamiento">
+        <label>Parametros de Entrenamiento</label>
+        <form [formGroup]="ConfigRed2Form">
 
-        <h3>Parametros de Entrenamiento</h3>
-
-        <div class="col-4">
             <h4>N° Iteracciones</h4>
             <input type="number" class="form-control" formControlName="niteracciones">
             <h4>Error Max Permitido</h4>
             <input type="number" class="form-control" formControlName="emp">
             <h4>Rata de Aprendizaje</h4>
             <input type="number" class="form-control" formControlName="rataAprendizaje">
-        </div>
-        <button type="button" (click)="Inicializarentrenamiento()" [disabled]="iniciarEntrenamiento || ConfigRed2Form.invalid" class="btn btn-secondary">Iniciar Entrenamiento</button>
+            <button type="button" (click)="Inicializarentrenamiento()" [disabled]="iniciarEntrenamiento || ConfigRed2Form.invalid" class="btn btn-secondary">Iniciar Entrenamiento</button>
 
 
-    </form>
-</div> -->
+        </form>
+    </div>
 
-<div class="contenedor">
-    <div class="Params_entrada">
-        <label>Parametros de entrada</label>
-        <h4 class="ESP">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
-        <input class="input_file" type="file" (change)="onChange($event.target.files)">
-        <input type="button" class="btn btn-success" value="Reiniciar Red" onclick="location.reload()" />
-    </div>
-    <div class="config_red">
-        <label>Configuracion de la red</label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
-    </div>
-    <div class="Params_Entrenamiento">
-        <label>Parametros de Entrenamiento</label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
-    </div>
+
     <div class="Info_Entrenamieto">
         <label>Informacion Entrenamieto</label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
+        <label>Parametros de entrada</label>
+        <h4 class="ESP">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
+
+        <label>Configuracion de la red </label>
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th scope="col ">Capa#</th>
+                    <th scope="col ">Funcion Activacion</th>
+                    <th scope="col ">Entradas</th>
+                    <th scope="col ">Neuronas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let layer of pesosoptimos; index as i ">
+                    <th scope="row ">{{i+1}}</th>
+                    <td><strong>{{layer.activation_function_name}}</strong></td>
+                    <td><strong>{{layer.num_inputs}}</strong></td>
+                    <td><strong>{{layer.nodes.length}}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <label>Parametros de Entrenamiento</label>
+        <h4>Numero de Iteracciones: {{datosEntrenamiento.epochs}}</h4>
+        <h4>Error max permitido: {{datosEntrenamiento.tolerance}}</h4>
+        <h4>Rata de aprendizaje: {{datosEntrenamiento.learning_rate}}</h4>
+
+
+
     </div>
+
     <div class="Grafica">
         <label>Grafica</label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
+
+        <ngx-charts-line-chart class="grafi" [view]="view" [scheme]="colorScheme" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline" [results]="multi"
+            (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        </ngx-charts-line-chart>
     </div>
 </div>

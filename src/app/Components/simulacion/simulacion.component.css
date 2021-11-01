@@ -29,3 +29,18 @@
     font-weight: bold;
     padding: 10px;
 }
+
+.contenedor div .ESP {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.contenedor .Params_entrada .input_file {
+    font-size: 14px;
+    padding: 20px;
+}
+
+.contenedor .Params_entrada .btn {
+    font-size: 15px;
+    padding: 10px;
+}

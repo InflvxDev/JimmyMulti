@@ -15,7 +15,11 @@
     grid-template-rows: repeat(3, auto);
 }
 
-.contenedor div {
+.contenedor .Params_entrada,
+.contenedor .config_red,
+.contenedor .Params_Entrenamiento,
+.contenedor .Info_Entrenamieto,
+.contenedor .Grafica {
     background: #fff;
     padding: 20px;
     border-radius: 4px;
@@ -23,7 +27,9 @@
     text-align: center;
 }
 
-.contenedor .Grafica {
+.contenedor .Grafica,
+.contenedor .Info_Entrenamieto,
+.contenedor .Params_Entrenamiento {
     grid-column-start: 1;
     grid-column-end: -1;
 }
@@ -54,7 +60,50 @@
     padding: 20px;
 }
 
-.contenedor .Params_entrada .btn {
+.contenedor .Params_entrada .btn,
+.contenedor .config_red .btn,
+.contenedor .Params_Entrenamiento .btn {
     font-size: 15px;
     padding: 10px;
+}
+
+.contenedor .config_red h4,
+.contenedor .Info_Entrenamieto h4 {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.contenedor .config_red .col-md-3,
+.contenedor .config_red .col-md-5 {
+    margin: 2px;
+}
+
+.contenedor .config_red .col-md-5 select option {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.contenedor .config_red .col-md-2 .btn {
+    font-size: 15px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.contenedor .config_red .btn-success,
+.contenedor .config_red .btn-secondary {
+    margin: 10px;
+}
+
+.contenedor .config_red #selectfas {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.contenedor .Params_Entrenamiento h4 {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.contenedor .Params_Entrenamiento .btn {
+    margin: 10px;
 }

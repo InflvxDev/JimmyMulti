@@ -1,7 +1,10 @@
 export class Entrenamiento{
 
-    algoritmo: string = '';
-    niteracciones : number;
-    emp : number;
-    rataAprendizaje : number;
+    inputs : number[][] = [];
+    outputs: number[][] = [];
+    learning_rate : number;
+    tolerance : number;
+    epochs : number;
+    
+    
 }

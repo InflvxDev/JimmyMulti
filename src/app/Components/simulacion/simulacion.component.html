@@ -1,10 +1,32 @@
 <div class="contenedor">
     <div class="Params_entrada">
         <label>Parametros de entrada</label>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, voluptates sequi nisi nostrum, soluta nam expedita numquam, dolore omnis fugit a cum maxime voluptatum reprehenderit? Excepturi cupiditate eligendi ratione delectus!</p>
+        <h4 class="ESP">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
+        <input class="input_file" type="file" (change)="onChange($event.target.files)">
+        <button type="button" class="btn btn-success" [disabled]="activarsimulacion" (click)="onSimulation()">
+            Iniciar Simulacion <i class="bi bi-bar-chart "></i>
+          </button>
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th scope="col ">Entradas</th>
+                    <th scope="col ">Salida YD</th>
+                    <th scope="col ">Salida YR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>{{entradas}}</strong></td>
+                    <td><strong>{{salidasesp}}</strong></td>
+                    <td><strong>{{salidared }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="Grafica">
+    <div class="Grafica ">
         <label>Grafica</label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
+        <ngx-charts-line-chart id="segundaGrafica" [view]="view" [scheme]="colorScheme" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel2" [yAxisLabel]="yAxisLabel2" [timeline]="timeline"
+            [results]="multi2" (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        </ngx-charts-line-chart>
     </div>
 </div>
