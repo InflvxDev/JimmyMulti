@@ -3,6 +3,8 @@ import { Entrenamiento } from '../../Models/Entrenamiento';
 import { Patron } from '../../Models/Patron';
 import { FormBuilder, FormArray, Validators } from '@angular/forms';
 import { Capa } from '../../Models/Capa';
+import { Neurona } from '../../Models/Neurona';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-entrenamiento-red',
@@ -17,9 +19,10 @@ export class EntrenamientoRedComponent implements OnInit {
   patron : Patron;
   capa: Capa;
 
-  Nsalidas : number;
-  Nentradas : number;
-  Npatrones: number;
+  iniciarEntrenamiento : boolean = true;
+  Nsalidas : number = 0;
+  Nentradas : number = 0;
+  Npatrones: number = 0;
   constructor(private formBuilder: FormBuilder) { this.datosEntrenamiento = new Entrenamiento();
     this.capa = new Capa(); }
 
@@ -29,9 +32,14 @@ export class EntrenamientoRedComponent implements OnInit {
   //--------------------------------Cargar Archivo------------------------------------------- 
 
   public onChange(fileList: FileList): void {
+    this.datosPatrones = [];
+    this.Nentradas = 0;
+    this.Nsalidas = 0;
+    this.Npatrones = 0;
     let file = fileList[0];
     let fileReader: FileReader = new FileReader();
     let self = this;
+    
     fileReader.onloadend = function(x) {
         
         self.fileContent = fileReader.result;
@@ -64,7 +72,7 @@ export class EntrenamientoRedComponent implements OnInit {
   
   public ParsearEntradasySalidas(entradas, salidas){
     this.patron = new Patron();
-
+    
     for (let index = 0; index < entradas.length; index++) {
 
       this.patron.entradas.push(parseInt(entradas[index]));
@@ -83,11 +91,15 @@ export class EntrenamientoRedComponent implements OnInit {
   return this.ConfigRedForm.get('capasO') as FormArray;
 }
 
-
-
 ConfigRedForm = this.formBuilder.group({
   factivacion: ['',Validators.required],
   capasO: this.formBuilder.array([])
+});
+
+ConfigRed2Form = this.formBuilder.group({
+  niteracciones: ['',Validators.required],
+  emp: ['',Validators.required],
+  rataAprendizaje : ['',Validators.required],
 });
 
 agregarCapaO(){
@@ -103,15 +115,14 @@ removerCapa(i : number){
 }
 
 ACred(){
-  this.datosCapas = this.ConfigRedForm.get('capasO').value;
-
-  
+  this.datosCapas = this.ConfigRedForm.get('capasO').value; 
   this.capa.factivacion = this.ConfigRedForm.get('factivacion').value;
   this.capa.nneuronas = this.Nsalidas;
-
-  this.datosCapas.push(this.capa);
-  console.log(this.datosCapas);
-  
+  this.datosCapas.push(this.capa);  
 }
+
+
+
+
 
 }

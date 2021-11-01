@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+.contenedor div {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .6);
+    text-align: center;
+}
+
+.contenedor div label {
+    color: #00B74A;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}

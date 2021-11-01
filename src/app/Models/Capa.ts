@@ -4,6 +4,6 @@ export class Capa{
     nneuronas : number;
     factivacion : string;
     umbral : number[] = [];
-    neuronas : Neurona[] = [];
+    h : number[] = [];
     pesos : number[][] = [];
 }

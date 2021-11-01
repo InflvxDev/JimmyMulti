@@ -1,8 +1,8 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-3">
         <h3>Parametros de Entrada</h3>
         <h4 class="card-title">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
-        <input type="file" (change)="onChange($event.target.files)">
+        
         <input type="button" class="btn btn-secondary" value="Reiniciar Red" onclick="location.reload()" />
     </div>
     <div class="col-6">
@@ -48,7 +48,50 @@
                     <option >LINEAL</option>
                 </select>
 
-            <button type="submit" [disabled]="ConfigRedForm.invalid" class="btn btn-danger">Agregar Capas a la Red</button>
+            <button type="submit" [disabled]="ConfigRedForm.invalid" class="btn btn-danger">Inicializar Pesos y Umbrales</button>
         </form>
+    </div>
+
+
+    <form [formGroup]="ConfigRed2Form">
+
+        <h3>Parametros de Entrenamiento</h3>
+
+        <div class="col-4">
+            <h4>N° Iteracciones</h4>
+            <input type="number" class="form-control" formControlName="niteracciones">
+            <h4>Error Max Permitido</h4>
+            <input type="number" class="form-control" formControlName="emp">
+            <h4>Rata de Aprendizaje</h4>
+            <input type="number" class="form-control" formControlName="rataAprendizaje">
+        </div>
+        <button type="button" (click)="Inicializarentrenamiento()" [disabled]="iniciarEntrenamiento || ConfigRed2Form.invalid" class="btn btn-secondary">Iniciar Entrenamiento</button>
+
+
+    </form>
+</div> -->
+
+<div class="contenedor">
+    <div class="Params_entrada">
+        <label>Parametros de entrada</label>
+        <h4 class="ESP">Entradas: {{Nentradas}} Salidas: {{Nsalidas}} Patrones: {{Npatrones}} </h4>
+        <input class="input_file" type="file" (change)="onChange($event.target.files)">
+        <input type="button" class="btn btn-success" value="Reiniciar Red" onclick="location.reload()" />
+    </div>
+    <div class="config_red">
+        <label>Configuracion de la red</label>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
+    </div>
+    <div class="Params_Entrenamiento">
+        <label>Parametros de Entrenamiento</label>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
+    </div>
+    <div class="Info_Entrenamieto">
+        <label>Informacion Entrenamieto</label>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
+    </div>
+    <div class="Grafica">
+        <label>Grafica</label>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, possimus vel. Exercitationem rem quas culpa quo incidunt in rerum recusandae iusto voluptatibus magni dolorem non, nobis ratione! Consectetur, beatae vero.</p>
     </div>
 </div>

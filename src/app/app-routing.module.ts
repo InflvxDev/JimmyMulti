@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EntrenamientoComponent } from './Components/entrenamiento/entrenamiento.component';
 import { EntrenamientoRedComponent } from './Components/entrenamiento-red/entrenamiento-red.component';
 import { SimulacionComponent } from './Components/simulacion/simulacion.component';
 

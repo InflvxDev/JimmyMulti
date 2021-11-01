@@ -1,59 +1,60 @@
-h1 {
-    font-size: 250%;
-    text-align: center;
-    color: gray;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 3%;
-    margin-bottom: 3%;
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.col-3 {
-    margin: 0 auto;
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
 }
 
-.col-4,
-.col-5,
-.col-10 {
-    margin: 0 auto;
-}
-
-h3 {
-    color: #F50057;
-    margin-top: 5%;
-    margin-bottom: 3%;
-    text-align: center;
-}
-
-h4 {
-    color: gray;
-    font-size: medium;
+.contenedor div {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .6);
     text-align: center;
 }
 
-h5 {
-    color: gray;
-    font-size: small;
-    text-align: center;
+.contenedor .Grafica {
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 
-.btn-danger {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 5%;
-    margin-top: 1%;
+@media screen and (max-width: 768px) {
+    .contenedor .Params_entrada,
+    .contenedor .config_red,
+    .contenedor .Params_Entrenamiento,
+    .contenedor .Info_Entrenamieto {
+        grid-column: 1/-1;
+    }
 }
 
-.btn-secondary {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 5%;
-    margin-top: 2%;
+.contenedor div label {
+    color: #00B74A;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
 }
 
-#selectfas {
-    margin-bottom: 5%;
+.contenedor div .ESP {
+    font-size: 15px;
+    padding: 5px;
 }
 
-#row1 {
-    margin: 0 auto;
+.contenedor .Params_entrada .input_file {
+    font-size: 14px;
+    padding: 20px;
+}
+
+.contenedor .Params_entrada .btn {
+    font-size: 15px;
+    padding: 10px;
 }

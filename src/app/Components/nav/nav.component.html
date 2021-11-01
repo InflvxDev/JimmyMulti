@@ -1,14 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar navbar-light">
-    <a class="navbar-brand" id="titulo">PercetronMultiCapa<small> Version 1.0</small></a>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" id="opciones" [routerLink]="['/']">Entrenamiento</a>
+<div class="body">
+    <nav class="menu">
+        <label class="logo">P.M.C</label>
+        <ul class="menu_items">
+            <li class="active">
+                <a [routerLink]="['/']">Entrenamiento</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="opciones" [routerLink]="['/simulacion']">Simulacion</a>
+            <li>
+                <a [routerLink]="['/simulacion']">Simulacion</a>
             </li>
         </ul>
-    </div>
-</nav>
+        <span class="btn_menu"><i class="fa fa-bars"></i></span>
+    </nav>
+
+</div>
